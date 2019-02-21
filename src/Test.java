@@ -13,6 +13,8 @@ public class Test {
         Student anotherStudent = new Student(2, "Jerry", 20, klass);
         Klass[] klasses = {klass, anotherKlass};
         Teacher teacher = new Teacher(1, "Tom", 21, klasses);
+        klass.setListener(teacher);
+        anotherKlass.setListener(teacher);
         Teacher anotherTeacher = new Teacher(1, "Tom", 21, new Klass[0]);
 
         System.out.println("Person: ");

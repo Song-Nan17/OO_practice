@@ -3,6 +3,7 @@ package model;
 public class Klass {
     private int number;
     private Student leader;
+    private Teacher listener;
 
     public Klass(int number) {
         this.number = number;
@@ -22,5 +23,13 @@ public class Klass {
 
     public Student getLeader() {
         return this.leader;
+    }
+
+    public void setListener(Teacher teacher) {
+        this.listener = teacher;
+    }
+
+    public Teacher getListener() {
+        return this.listener;
     }
 }
