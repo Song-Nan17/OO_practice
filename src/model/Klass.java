@@ -20,7 +20,7 @@ public class Klass {
     public void assignLeader(Student student) {
         if (isIn(student)) {
             this.leader = student;
-            this.listener.notifyAssigningLeader();
+            System.out.println("I am " + this.listener.getName() + ". I know " + student.getName() + " become Leader of Class " + this.number + ".");
         } else {
             System.out.println("It is not one of us.");
         }
