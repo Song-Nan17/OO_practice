@@ -38,5 +38,12 @@ public class Test {
         System.out.println(teacher.getKlasses().length == klasses.length);
         System.out.println(teacher.getKlasses()[0] == klasses[0]);
         System.out.println(teacher.getKlasses()[1] == klasses[1]);
+        System.out.println("#introduce");
+        System.out.println("should overwrite Person introduce, introduce with name, age and class number, given teacher have class");
+        System.out.println(teacher.introduce().equals("should overwrite Person introduce, introduce with name, age and class number, given teacher have class"));
+        System.out.println("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class");
+        Teacher anotherTeacher = new Teacher(1, "Tom", 21, new Klass[0]);
+        System.out.println(anotherTeacher.introduce().equals("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class."));
+        System.out.println();
     }
 }
