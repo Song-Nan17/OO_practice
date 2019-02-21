@@ -45,5 +45,9 @@ public class Test {
         Teacher anotherTeacher = new Teacher(1, "Tom", 21, new Klass[0]);
         System.out.println(anotherTeacher.introduce().equals("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class."));
         System.out.println();
+
+        System.out.println("Class:");
+        System.out.println("should have class number");
+        System.out.println(klass.getNumber() == 2);
     }
 }
