@@ -11,6 +11,7 @@ public class Test {
         Klass otherKlass = new Klass(4);
         Student student = new Student(1, "Tom", 21, klass);
         Student anotherStudent = new Student(2, "Jerry", 20, klass);
+        Student otherStudent = new Student(3, "Mike", 20, otherKlass);
         Klass[] klasses = {klass, anotherKlass};
         Teacher teacher = new Teacher(1, "Tom", 21, klasses);
         klass.setListener(teacher);
@@ -65,6 +66,12 @@ public class Test {
         System.out.println("should notify assign leader listeners");
         System.out.println("Output(Expected \"I am Tom. I know Jerry become Leader of Class 2.\"):");
         klass.assignLeader(anotherStudent);
-
+        System.out.println("#appendMemeber");
+        System.out.println("##should change student's klass attribute");
+        System.out.println(otherStudent.getKlass() == otherKlass);
+        System.out.println("###should notify join listeners");
+        System.out.println("Output(Expected \"I am Tom. I know Jerry has joined Class 2.\"):");
+        klass.appendMember(otherStudent);
+        System.out.println(otherStudent.getKlass() == klass);
     }
 }

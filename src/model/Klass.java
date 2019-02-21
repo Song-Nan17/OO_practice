@@ -26,6 +26,13 @@ public class Klass {
         }
     }
 
+    public void appendMember(Student student) {
+        student.setKlass(this);
+        if (this.listener != null) {
+            System.out.println("I am " + this.listener.getName() + ". I know " + student.getName() + " has joined Class " + this.number + ".");
+        }
+    }
+
     public Student getLeader() {
         return this.leader;
     }
