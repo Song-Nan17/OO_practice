@@ -18,4 +18,12 @@ public class Student extends Person {
     public void setKlass(Klass klass) {
         this.klass = klass;
     }
+
+    @Override
+    public String introduce() {
+        String introduction = super.introduce() + " I am a Student. I am ";
+        introduction += this.klass.getLeader() == this ? "Leader of Class " : "at Class ";
+        introduction += this.klass.getNumber() + ".";
+        return introduction;
+    }
 }
