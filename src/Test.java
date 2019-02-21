@@ -1,6 +1,7 @@
 import model.Klass;
 import model.Person;
 import model.Student;
+import model.Teacher;
 
 public class Test {
     public static void main(String[] args) {
@@ -26,5 +27,16 @@ public class Test {
         System.out.println("should print Leader role, given student is leader");
         klass.assignLeader(student);
         System.out.println(student.introduce().equals("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2."));
+        System.out.println();
+
+        System.out.println("Teacher:");
+        Klass[] klasses = {new Klass(2), new Klass(3)};
+        Teacher teacher = new Teacher(1, "Tom", 21, klasses);
+        System.out.println("should have field name, age and class number");
+        System.out.println(teacher.getName() == "Tom");
+        System.out.println(teacher.getAge() == 21);
+        System.out.println(teacher.getKlasses().length == klasses.length);
+        System.out.println(teacher.getKlasses()[0] == klasses[0]);
+        System.out.println(teacher.getKlasses()[1] == klasses[1]);
     }
 }
