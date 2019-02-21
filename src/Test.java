@@ -5,8 +5,17 @@ import model.Teacher;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Person: ");
         Person person = new Person(1, "Tom", 21);
+        Klass klass = new Klass(2);
+        Klass anotherKlass = new Klass(3);
+        Klass otherKlass = new Klass(4);
+        Student student = new Student(1, "Tom", 21, klass);
+        Student anotherStudent = new Student(2, "Jerry", 20, klass);
+        Klass[] klasses = {klass, anotherKlass};
+        Teacher teacher = new Teacher(1, "Tom", 21, klasses);
+        Teacher anotherTeacher = new Teacher(1, "Tom", 21, new Klass[0]);
+
+        System.out.println("Person: ");
         System.out.println("should have field name and age");
         System.out.println(person.getName() == "Tom");
         System.out.println(person.getAge() == 21);
@@ -15,8 +24,6 @@ public class Test {
         System.out.println();
 
         System.out.println("Student:");
-        Klass klass = new Klass(2);
-        Student student = new Student(1, "Tom", 21, klass);
         System.out.println("should have field name, age and class number");
         System.out.println(student.getName() == "Tom");
         System.out.println(student.getAge() == 21);
@@ -30,8 +37,6 @@ public class Test {
         System.out.println();
 
         System.out.println("Teacher:");
-        Klass[] klasses = {new Klass(2), new Klass(3)};
-        Teacher teacher = new Teacher(1, "Tom", 21, klasses);
         System.out.println("should have field name, age and class number");
         System.out.println(teacher.getName() == "Tom");
         System.out.println(teacher.getAge() == 21);
@@ -42,12 +47,22 @@ public class Test {
         System.out.println("should overwrite Person introduce, introduce with name, age and class number, given teacher have class");
         System.out.println(teacher.introduce().equals("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2, 3."));
         System.out.println("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class");
-        Teacher anotherTeacher = new Teacher(1, "Tom", 21, new Klass[0]);
         System.out.println(anotherTeacher.introduce().equals("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class."));
         System.out.println();
 
         System.out.println("Class:");
         System.out.println("should have class number");
         System.out.println(klass.getNumber() == 2);
+        System.out.println("#assignLeader");
+        System.out.println("should assign student as Leader, given student is class member");
+        System.out.println(klass.getLeader() == student);
+        System.out.println("should not assign student as Leader, given student is not class member");
+        System.out.println("Output(Expected \"It is not one of us.\"):");
+        otherKlass.assignLeader(student);
+        System.out.println(otherKlass.getLeader() != student);
+        System.out.println("should notify assign leader listeners");
+        System.out.println("Output(Expected \"I am Tom. I know Jerry become Leader of Class 2.\"):");
+        klass.assignLeader(anotherStudent);
+
     }
 }
