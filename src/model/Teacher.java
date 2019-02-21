@@ -34,6 +34,14 @@ public class Teacher extends Person {
         return introduction;
     }
 
-    public void notifyAssigningLeader() {
+    public boolean isTeaching(Student student) {
+        boolean isTeaching = false;
+        for (Klass klass : this.klasses) {
+            if (klass.isIn(student)) {
+                isTeaching = true;
+                break;
+            }
+        }
+        return isTeaching;
     }
 }
