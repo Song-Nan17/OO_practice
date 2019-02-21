@@ -18,7 +18,12 @@ public class Klass {
     }
 
     public void assignLeader(Student student) {
-        this.leader = student;
+        if (isIn(student)) {
+            this.leader = student;
+            this.listener.notifyAssigningLeader();
+        } else {
+            System.out.println("It is not one of us.");
+        }
     }
 
     public Student getLeader() {
@@ -31,5 +36,10 @@ public class Klass {
 
     public Teacher getListener() {
         return this.listener;
+    }
+
+    public boolean isIn(Student student) {
+        boolean isIn = student.getKlass() == this ? true : false;
+        return isIn;
     }
 }

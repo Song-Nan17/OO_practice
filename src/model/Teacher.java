@@ -33,4 +33,7 @@ public class Teacher extends Person {
         }
         return introduction;
     }
+
+    public void notifyAssigningLeader() {
+    }
 }
